@@ -10,7 +10,7 @@ on:
     branches: [ "main" ]
 
 jobs:
-  build:
+  build_and_deploy:
     # continuous integration
     runs-on: ubuntu-latest
     steps:
@@ -28,10 +28,7 @@ jobs:
     - name: Publish
       run: dotnet publish -o ./app
       
-  deploy:
     # continuous deployment
-    runs-on: ubuntu-latest
-    steps:
     - name: Copy application via scp to the server
       uses: appleboy/scp-action@v0.1.4
       with:
