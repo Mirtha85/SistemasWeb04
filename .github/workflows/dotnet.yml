@@ -30,12 +30,11 @@ jobs:
       run: dotnet publish -o ./app
     # continuous deployment
     - name: Copy file via scp to the server
-      uses: appleboy/scp-action@master
-      env:
-        HOST: ${{ secrets.MAINSITE_IP }}
-        USERNAME: ${{ secrets.MAINSITE_USER }}
-        PASSPHRASE: ${{ secrets.MAINSITE_PASSPHRASE }}
-        KEY: ${{ secrets.MAINSITE_PRIVATEKEY }}
+      uses: appleboy/scp-action@v0.1.4
       with:
-        source: "app"
+        host: ${{ secrets.MAINSITE_IP }}
+        username: ${{ secrets.MAINSITE_USER }}
+        passphrase: ${{ secrets.MAINSITE_PASSPHRASE }}
+        key: ${{ secrets.MAINSITE_PRIVATEKEY }}
+        source: "./app"
         target: "~/dotnet/SistemasWeb01/."
