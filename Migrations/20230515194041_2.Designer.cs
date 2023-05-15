@@ -10,14 +10,13 @@ using SistemasWeb01.Models;
 namespace SistemasWeb01.Migrations
 {
     [DbContext(typeof(BethesdaPieShopDbContext))]
-    [Migration("20230515143151_prueba")]
-    partial class prueba
+    [Migration("20230515194041_2")]
+    partial class _2
     {
-        /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
-            modelBuilder.HasAnnotation("ProductVersion", "7.0.5");
+            modelBuilder.HasAnnotation("ProductVersion", "6.0.5");
 
             modelBuilder.Entity("SistemasWeb01.Models.Category", b =>
                 {

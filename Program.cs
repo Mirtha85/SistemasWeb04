@@ -14,6 +14,7 @@ builder.Services.AddDbContext<BethesdaPieShopDbContext>(options => {
         builder.Configuration["ConnectionStrings:BethesdaPieShopDbContextConnection"]);
 });
 
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

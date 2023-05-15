@@ -4,10 +4,8 @@
 
 namespace SistemasWeb01.Migrations
 {
-    /// <inheritdoc />
-    public partial class prueba : Migration
+    public partial class _2 : Migration
     {
-        /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
@@ -58,7 +56,6 @@ namespace SistemasWeb01.Migrations
                 column: "CategoryId");
         }
 
-        /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
