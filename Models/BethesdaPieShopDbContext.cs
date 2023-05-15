@@ -6,7 +6,7 @@ namespace SistemasWeb01.Models
     {
         public BethesdaPieShopDbContext(DbContextOptions<BethesdaPieShopDbContext> options) : base(options)
         {
-
+            Database.Migrate();
         }
 
         public DbSet<Category> Categories { get; set; }
