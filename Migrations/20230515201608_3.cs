@@ -4,7 +4,7 @@
 
 namespace SistemasWeb01.Migrations
 {
-    public partial class _2 : Migration
+    public partial class _3 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

@@ -10,8 +10,8 @@ using SistemasWeb01.Models;
 namespace SistemasWeb01.Migrations
 {
     [DbContext(typeof(BethesdaPieShopDbContext))]
-    [Migration("20230515194041_2")]
-    partial class _2
+    [Migration("20230515201608_3")]
+    partial class _3
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
