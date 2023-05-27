@@ -10,8 +10,8 @@ using SistemasWeb01.Models;
 namespace SistemasWeb01.Migrations
 {
     [DbContext(typeof(BdContexTiendaTecnoBoliviaSc))]
-    [Migration("20230527032205_add_modulo_product_catalog")]
-    partial class add_modulo_product_catalog
+    [Migration("20230527040519_agrege_modulo_product_categoria")]
+    partial class agrege_modulo_product_categoria
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

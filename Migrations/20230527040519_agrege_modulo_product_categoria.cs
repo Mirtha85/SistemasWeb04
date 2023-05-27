@@ -4,7 +4,7 @@
 
 namespace SistemasWeb01.Migrations
 {
-    public partial class add_modulo_product_catalog : Migration
+    public partial class agrege_modulo_product_categoria : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
