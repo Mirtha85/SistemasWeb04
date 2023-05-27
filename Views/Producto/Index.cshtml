@@ -1,0 +1,64 @@
+﻿@model IEnumerable<Producto>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Productos</h1>
+
+<p class="btn btn-success ">
+    <a class="text-white" asp-action="Crear">Crear Producto</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+
+            <th>
+                @Html.DisplayNameFor(model => model.NombreProducto)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DescripcionProducto)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Deleted)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NombreProducto)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DescripcionProducto)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Deleted)
+                </td>
+                <td>
+
+                   
+                </td>
+                <td>
+                    <a class="btn btn-warning" asp-action="UpdateProducto" asp-route-id="@item.ProductoId">Edit</a>
+
+                </td>
+                <td>
+
+                    <a class="btn btn-info" asp-action="Detalles" asp-route-id="@item.ProductoId">Details</a>
+                </td>
+                <td>
+
+                    <a class="btn btn-danger" asp-action="DeleteProducto" asp-route-id="@item.ProductoId">Delete</a>
+                </td>
+                <td>
+
+                    <a class="btn btn-danger" asp-action="Deletet" asp-route-id="@item.ProductoId">Deletet</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

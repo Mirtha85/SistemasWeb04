@@ -1,0 +1,11 @@
+﻿@model Producto
+<h3 class="my-5">@Model.NombreProducto</h3>
+<div class="row gx-5">
+    <img alt="@Model.NombreProducto" src="~/imagenes/@Model.ImagenProducto" class="img-fluid col-5" />
+    <div class="col-7">
+        <h4>@Model.NombreProducto</h4>
+        <p>@Model.DescripcionProducto</p>
+        <h3 class="pull-right">@Model.PrecioProducto.ToString("c")</h3>
+        
+    </div>
+</div>

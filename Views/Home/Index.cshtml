@@ -1,8 +1,39 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
+﻿@model ProductoListViewModel;
+<section class="container seccion-productos">
+    <div class="row">
+        @foreach (var pie in Model.Productos)
+        {
+            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                <!-- Start Single Product -->
+                <div class="single-product">
+                    <div class="product-image">
+                        <img src="~/imagenes/@pie.ImagenProducto" width="500px" height="250px" alt="@pie.NombreProducto">
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+                        <div class="button">
+                            <a href="#" class="btn"><i class="bi bi-cart-plus"></i> Add to Cart</a>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <span class="category">@pie.Categoria.NombreCategoria</span>
+                        <h4 class="title">
+                            <a class="pie-link" asp-controller="Producto" asp-action="Detalles" asp-route-id="@pie.ProductoId">@pie.NombreProducto</a>
+                        </h4>
+
+
+                        <div class="price">
+                            <span>$@pie.PrecioProducto</span>
+                        </div>
+                        <!--  <footer>
+
+                            <h5>
+                                De : @pie.Categoria.NombreCategoria
+                            </h5>
+
+                        </footer>-->
+                    </div>
+                </div>
+                <!-- End Single Product -->
+            </div>
+        }
+    </div>
+</section>

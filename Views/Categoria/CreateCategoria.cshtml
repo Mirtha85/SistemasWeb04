@@ -1,0 +1,33 @@
+﻿@model Categoria
+<form asp-action="CreateCategoria" method="post" role="form">
+    <h3 class="my-5">
+        Crear nueva categoria
+    </h3>
+
+    <div asp-validation-summary="All" class="text-danger"></div>
+
+    <div class="col-6">
+        <div class="row g-2">
+            <div class="col-12">
+                <label asp-for="NombreCategoria" class="form-label"></label>
+                <input asp-for="NombreCategoria" class="form-control" />
+                <span asp-validation-for="NombreCategoria" class="text-danger"></span>
+            </div>
+
+            <div class="col-12">
+                <label asp-for="DescripcionCategoria" class="form-label"></label>
+                <input asp-for="DescripcionCategoria" class="form-control" />
+                <span asp-validation-for="DescripcionCategoria" class="text-danger"></span>
+            </div>
+
+
+            <div class="mt-2">
+                <div class="col-md-offset-2 col-md-5">
+                    <input type="submit" class="btn btn-secondary" value="Create Categoria" />
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</form>

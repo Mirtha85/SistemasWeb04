@@ -7,13 +7,15 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
-builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
-builder.Services.AddScoped<IPieRepository, PieRepository>();
+
+builder.Services.AddScoped<InterfazCategoria, RepositorioCategoria>();
+
+builder.Services.AddScoped<InterfazProducto, RepositorioProducto>();
 
 //conexion
-builder.Services.AddDbContext<BethesdaPieShopDbContext>(options => {
+builder.Services.AddDbContext<BdContexTiendaTecnoBoliviaSc>(options => {
     options.UseSqlite(
-        builder.Configuration["ConnectionStrings:BethesdaPieShopDbContextConnection"]);
+        builder.Configuration["ConnectionStrings:BdContexTiendaTecnoBoliviaScConnection"]);
 });
 
 
@@ -36,6 +38,6 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
-DbInitializer.Seed(app);
+    pattern: "{controller=Producto}/{action=Mensajepro}/{id?}");
+
 app.Run();
