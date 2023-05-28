@@ -4,7 +4,7 @@
 
 namespace SistemasWeb01.Migrations
 {
-    public partial class nuevo : Migration
+    public partial class nuevo2 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
