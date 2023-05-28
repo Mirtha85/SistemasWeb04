@@ -4,7 +4,7 @@
 
 namespace SistemasWeb01.Migrations
 {
-    public partial class agrege_modulo_product_categoria : Migration
+    public partial class nuevo : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
