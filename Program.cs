@@ -40,6 +40,6 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Producto}/{action=Mensajepro}/{id?}");
 
-//DbInitializer.Seed(app);
+DbInitializer.Seed(app);
 
 app.Run();
