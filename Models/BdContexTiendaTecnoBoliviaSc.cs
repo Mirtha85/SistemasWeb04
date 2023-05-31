@@ -12,7 +12,8 @@ namespace SistemasWeb01.Models
             Database.Migrate();
         }
         public DbSet<Categoria> Categoriasdbcontex { get; set; }
-       // public DbSet<Contacto> Contactosdbcontex { get; set; }
+        public DbSet<ShoppingCartItem> ShoppingCartItems { get; set; }
+        // public DbSet<Contacto> Contactosdbcontex { get; set; }
         public DbSet<Producto> Productosdbcontex { get; set; }
     }
 }
