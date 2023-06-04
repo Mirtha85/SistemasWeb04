@@ -4,7 +4,7 @@
 
 namespace SistemasWeb01.Migrations
 {
-    public partial class @new : Migration
+    public partial class initialDatabaseAgain : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -46,14 +46,43 @@ namespace SistemasWeb01.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "ShoppingCartItems",
+                columns: table => new
+                {
+                    ShoppingCartItemId = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    ProductoId = table.Column<int>(type: "INTEGER", nullable: false),
+                    Amount = table.Column<int>(type: "INTEGER", nullable: false),
+                    ShoppingCartId = table.Column<string>(type: "TEXT", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ShoppingCartItems", x => x.ShoppingCartItemId);
+                    table.ForeignKey(
+                        name: "FK_ShoppingCartItems_Productosdbcontex_ProductoId",
+                        column: x => x.ProductoId,
+                        principalTable: "Productosdbcontex",
+                        principalColumn: "ProductoId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_Productosdbcontex_CategoriaId",
                 table: "Productosdbcontex",
                 column: "CategoriaId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ShoppingCartItems_ProductoId",
+                table: "ShoppingCartItems",
+                column: "ProductoId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "ShoppingCartItems");
+
             migrationBuilder.DropTable(
                 name: "Productosdbcontex");
 
