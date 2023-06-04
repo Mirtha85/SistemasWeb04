@@ -12,6 +12,10 @@ builder.Services.AddScoped<InterfazCategoria, RepositorioCategoria>();
 
 builder.Services.AddScoped<InterfazProducto, RepositorioProducto>();
 
+builder.Services.AddScoped<InterfazShoppingCart,RepositorioShoppingCart>(sp => RepositorioShoppingCart.GetCart(sp));
+builder.Services.AddSession();
+builder.Services.AddHttpContextAccessor();
+
 //conexion
 builder.Services.AddDbContext<BdContexTiendaTecnoBoliviaSc>(options => {
     options.UseSqlite(
@@ -31,6 +35,8 @@ if (!app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
+
+app.UseSession();
 
 app.UseRouting();
 

@@ -1,0 +1,27 @@
+﻿@model Producto
+<div class="col">
+    <div class="card Producto-card">
+        <img src="@Model.ImagenProducto" class="card-img-top" alt="@Model.NombreProducto">
+        <div class="card-body pie-button">
+            <h4 class="d-grid">
+                <a class="btn btn-secondary"
+                   asp-controller="ShoppingCart"
+                   asp-action="AddToShoppingCart"
+                   asp-route-pieId="@Model.ProductoId"> + Add to cart</a>
+            </h4>
+
+            <div class="d-flex justify-content-between mt-2">
+                <h2 class="text-start">
+                    <a class="pie-link"
+                       asp-controller="Product"
+                       asp-action="Details"
+                       asp-route-id="@Model.ProductoId">@Model.NombreProducto</a>
+                </h2>
+                <h5 class="text-nowrap">
+                    @Model.PrecioProducto.ToString("c")
+                </h5>
+
+            </div>
+        </div>
+    </div>
+</div>

@@ -4,7 +4,7 @@
 
 namespace SistemasWeb01.Migrations
 {
-    public partial class addshoppingcart : Migration
+    public partial class initialDatabaseAgain : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

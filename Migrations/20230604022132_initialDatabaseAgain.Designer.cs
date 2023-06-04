@@ -10,8 +10,8 @@ using SistemasWeb01.Models;
 namespace SistemasWeb01.Migrations
 {
     [DbContext(typeof(BdContexTiendaTecnoBoliviaSc))]
-    [Migration("20230529130136_eliminedbinitial")]
-    partial class eliminedbinitial
+    [Migration("20230604022132_initialDatabaseAgain")]
+    partial class initialDatabaseAgain
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -69,6 +69,28 @@ namespace SistemasWeb01.Migrations
                     b.ToTable("Productosdbcontex");
                 });
 
+            modelBuilder.Entity("SistemasWeb01.Models.ShoppingCartItem", b =>
+                {
+                    b.Property<int>("ShoppingCartItemId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("Amount")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("ProductoId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("ShoppingCartId")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("ShoppingCartItemId");
+
+                    b.HasIndex("ProductoId");
+
+                    b.ToTable("ShoppingCartItems");
+                });
+
             modelBuilder.Entity("SistemasWeb01.Models.Producto", b =>
                 {
                     b.HasOne("SistemasWeb01.Models.Categoria", "Categoria")
@@ -78,6 +100,17 @@ namespace SistemasWeb01.Migrations
                         .IsRequired();
 
                     b.Navigation("Categoria");
+                });
+
+            modelBuilder.Entity("SistemasWeb01.Models.ShoppingCartItem", b =>
+                {
+                    b.HasOne("SistemasWeb01.Models.Producto", "producto")
+                        .WithMany()
+                        .HasForeignKey("ProductoId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("producto");
                 });
 
             modelBuilder.Entity("SistemasWeb01.Models.Categoria", b =>
