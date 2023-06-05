@@ -1,4 +1,20 @@
 ﻿@model ProductoListViewModel;
+<section class="container seccion-productos">
+    <div class="row">
+
+        
+
+          @foreach (var Producto in Model.Productos)
+          {
+            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+             <partial name="_ProductoCard" model="Producto" />
+            </div>
+          }
+
+       
+    </div>
+</section>
+@*@model ProductoListViewModel;
 
 @{
     ViewData["Title"] = "Home Page";
@@ -41,4 +57,4 @@
             </div>
         }
     </div>
-</section>
+</section>*@

@@ -1,7 +1,8 @@
 ﻿@model Producto
-<div class="col">
+@*<div class="col">
     <div class="card Producto-card">
-        <img src="@Model.ImagenProducto" class="card-img-top" alt="@Model.NombreProducto">
+        
+        <img src="~/imagenes/@Model.ImagenProducto" width="250" height="200" alt="@Model.NombreProducto">
         <div class="card-body pie-button">
             <h4 class="d-grid">
                 <a class="btn btn-secondary"
@@ -13,7 +14,7 @@
             <div class="d-flex justify-content-between mt-2">
                 <h2 class="text-start">
                     <a class="pie-link"
-                       asp-controller="Product"
+                       asp-controller="Producto"
                        asp-action="Details"
                        asp-route-id="@Model.ProductoId">@Model.NombreProducto</a>
                 </h2>
@@ -24,4 +25,37 @@
             </div>
         </div>
     </div>
+</div>*@
+
+
+
+
+<!-- Start Single Product -->
+<div class="single-product">
+    <div class="product-image">
+        <img src="~/imagenes/@Model.ImagenProducto" width="250" height="200" alt="@Model.NombreProducto">
+
+        <div class="button">
+            <a class="btn" asp-controller="ShoppingCart"
+               asp-action="AddToShoppingCart"
+               asp-route-pieId="@Model.ProductoId"><i class="bi bi-cart-plus"></i> + Add to cart</a>
+        </div>
+    </div>
+    <div class="product-info">
+        <h2 class="text-start">
+            <a class="pie-link"
+               asp-controller="Producto"
+               asp-action="Details"
+               asp-route-id="@Model.ProductoId">@Model.NombreProducto</a>
+        </h2>
+
+
+        <div class="price">
+            @Model.PrecioProducto.ToString("c")
+        </div>
+        
+    </div>
 </div>
+          
+        
+  

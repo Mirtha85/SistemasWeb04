@@ -147,5 +147,13 @@ namespace SistemasWeb01.Controllers
             _RepositorioProducto.Deletet(prod);
             return RedirectToAction("Index", "producto");
         }
+        public IActionResult Details(int id)
+        {
+            var producto = _RepositorioProducto.GetcatById(id);
+            if (producto == null)
+                return NotFound();
+
+            return View(producto);
+        }
     }
 }
