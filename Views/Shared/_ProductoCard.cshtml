@@ -31,31 +31,51 @@
 
 
 <!-- Start Single Product -->
-<div class="single-product">
-    <div class="product-image">
-        <img src="~/imagenes/@Model.ImagenProducto" width="250" height="200" alt="@Model.NombreProducto">
+<div class="card">
+    <div class="card-body">
+        <div class="card-img-actions">
 
-        <div class="button">
-            <a class="btn" asp-controller="ShoppingCart"
-               asp-action="AddToShoppingCart"
-               asp-route-pieId="@Model.ProductoId"><i class="bi bi-cart-plus"></i> + Add to cart</a>
+            <img src="~/imagenes/@Model.ImagenProducto" class="card-img " width="96" height="200" alt="@Model.NombreProducto">
+
+
         </div>
     </div>
-    <div class="product-info">
-        <h2 class="text-start">
-            <a class="pie-link"
-               asp-controller="Producto"
-               asp-action="Details"
-               asp-route-id="@Model.ProductoId">@Model.NombreProducto</a>
-        </h2>
+    <div class="card-body bg-light text-center">
+        <div class="mb-2">
+            <h6 class="font-weight-semibold mb-2">
+                <a class="pie-link"
+                   asp-controller="Producto"
+                   asp-action="Details"
+                   asp-route-id="@Model.ProductoId">@Model.NombreProducto</a>
+            </h6>
 
+            <a href="#" class="text-muted" data-abc="true">Laptops & Notebooks</a>
+        </div>
 
         <div class="price">
             @Model.PrecioProducto.ToString("c")
         </div>
-        
+
+        <div class="rating">
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-fill"></i>
+        </div>
+
+        <div class="text-muted mb-3">34 reviews</div>
+
+        <div class="product-image">
+
+            <div class="button">
+                <a class="btn bg-cart" asp-controller="ShoppingCart"
+                   asp-action="AddToShoppingCart"
+                   asp-route-pieId="@Model.ProductoId"><i class="bi bi-cart-plus"></i> + Add to cart</a>
+            </div>
+        </div>
+
+
     </div>
+   
 </div>
-          
-        
-  
