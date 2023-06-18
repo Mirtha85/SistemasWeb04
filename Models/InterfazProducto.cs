@@ -3,7 +3,7 @@
     public interface InterfazProducto
     {
         public void agregar(Producto producto);
-        public void Update(Producto producto);
+        public void UpdateProducto(Producto producto);
         public void Delete(Producto producto);
 
         public void Deletet(Producto producto);

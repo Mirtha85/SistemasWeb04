@@ -21,7 +21,7 @@ namespace SistemasWeb01.Models
             _BdContexTiendaTecnoBoliviaSc.Productosdbcontex.Add(producto);
             _BdContexTiendaTecnoBoliviaSc.SaveChanges();
         }
-        public void Update(Producto producto)
+        public void UpdateProducto(Producto producto)
         {
             
 

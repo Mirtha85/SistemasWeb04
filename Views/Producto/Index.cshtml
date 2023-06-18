@@ -4,62 +4,198 @@
     ViewData["Title"] = "Index";
 }
 <section class="container seccion">
-<h1>Productos</h1>
+    <h1 class="texto-about fw-bolder text-capitalize">Productos</h1>
 
-<p class="btn btn-success ">
-    <a class="text-white" asp-action="Crear">Crear Producto</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
+    <br>
 
-            <th>
-                @Html.DisplayNameFor(model => model.NombreProducto)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DescripcionProducto)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Deleted)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
+
+    <div class="containerpro">
+        <p class="btn btn-success">
+            <a class="text-white" asp-action="Crear">Crear Producto</a>
+        </p>
+
+        <div class="search-container">
+            <input type="text" id="search-input" placeholder="Buscar...">
+            <button type="button" id="search-button">Buscar</button>
+        </div>
+    </div>
+
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" />
+    <br>
+    
+
+    <table class="table">
+        <thead>
             <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.NombreProducto)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.DescripcionProducto)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Deleted)
-                </td>
-                <td>
-
-                   
-                </td>
-                <td>
-                    <a class="btn btn-warning" asp-action="UpdateProducto" asp-route-id="@item.ProductoId">Edit</a>
-
-                </td>
-                <td>
-
-                    <a class="btn btn-info" asp-action="Detalles" asp-route-id="@item.ProductoId">Details</a>
-                </td>
-                <td>
-
-                    <a class="btn btn-danger" asp-action="DeleteProducto" asp-route-id="@item.ProductoId">Delete</a>
-                </td>
-                <td>
-
-                    <a class="btn btn-danger" asp-action="Deletet" asp-route-id="@item.ProductoId">Deletet</a>
-                </td>
+                <th>
+                    @Html.DisplayNameFor(model => model.ImagenProducto)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.NombreProducto)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DescripcionProducto)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PrecioProducto)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Deleted)
+                </th>
+                <th></th>
             </tr>
-        }
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr class="table-row">
+                    <td>
+                        <img src="~/imagenes/@item.ImagenProducto" style="width:100px;" />
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NombreProducto)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DescripcionProducto)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PrecioProducto)
+                    </td>
+                    <td>
+
+                        @Html.DisplayFor(modelItem => item.Deleted)
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+                        <a class="btn btn-warning" asp-action="UpdateProducto" asp-route-id="@item.ProductoId">Edit</a>
+                    </td>
+                    <td>
+                        <a class="btn btn-info" asp-action="Details" asp-route-id="@item.ProductoId">Details</a>
+                    </td>
+                    <td>
+                        <a class="btn btn-danger" asp-action="DeleteProducto" asp-route-id="@item.ProductoId">Delete</a>
+                    </td>
+                    <td>
+                        <a class="btn btn-danger" asp-action="Deletet" asp-route-id="@item.ProductoId">Deletet</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
 </section>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $("#search-button").on("click", function () {
+            var searchText = $("#search-input").val().toLowerCase();
+            $(".table-row").each(function () {
+                var rowText = $(this).text().toLowerCase();
+                if (rowText.indexOf(searchText) === -1) {
+                    $(this).hide();
+                } else {
+                    $(this).show();
+                }
+            });
+        });
+    });
+</script>
+
+<style>
+    .containerpro {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .search-container {
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+
+        .search-container input[type="text"] {
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            margin-right: 10px;
+            font-size: 16px;
+            width: 200px;
+            border: 1px solid black;
+        }
+
+        .search-container button {
+            padding: 10px 15px;
+            background-color: #4CAF50;
+            border: none;
+            border-radius: 4px;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+            .search-container button:hover {
+                background-color: #45a049;
+            }
+</style>
+<style>
+    .table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+        .table thead th {
+            background-color: #f2f2f2;
+            color: #333;
+            padding: 8px;
+            font-weight: bold;
+            text-align: left;
+        }
+
+        .table tbody td {
+            padding: 8px;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .table tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        .table .btn {
+            padding: 6px 12px;
+            border-radius: 4px;
+            color: #fff;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        .table .btn-warning {
+            background-color: #f0ad4e;
+            border: none;
+        }
+
+        .table .btn-info {
+            background-color: #5bc0de;
+            border: none;
+        }
+
+        .table .btn-danger {
+            background-color: #d9534f;
+            border: none;
+        }
+
+        .table .btn:hover {
+            opacity: 0.8;
+        }
+</style>
+<style>
+    h1 {
+        font-size: 30px;
+        color: black;
+        background-color: #f2f2f2;
+        padding: 10px;
+        text-align: center;
+    }
+</style>

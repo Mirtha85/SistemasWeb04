@@ -81,7 +81,7 @@ namespace SistemasWeb01.Controllers
         {
             if (ModelState.IsValid)
             {
-                _RepositorioProducto.Update(producto);
+                _RepositorioProducto.UpdateProducto(producto);
                 return RedirectToAction("Index", "Producto");
             }
             else
