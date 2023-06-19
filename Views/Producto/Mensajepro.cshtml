@@ -11,7 +11,7 @@
         </button>
         @foreach (var categoria in Model.categorias)
         {
-            <button class="btn btn-outline-warning btn-categoria" data-id="@categoria.CategoriaId">
+            <button class="btn btn-warning btn-categoria mr-2" data-id="@categoria.CategoriaId">
                 @categoria.NombreCategoria
             </button>
         }
@@ -47,7 +47,11 @@
     });
 </script>
 
-
+<style>
+    .btn-categoria {
+        margin-right: 10px; /* Ajusta el valor según tus necesidades */
+    }
+</style>
 
 @*@model ProductoListViewModel;
 
