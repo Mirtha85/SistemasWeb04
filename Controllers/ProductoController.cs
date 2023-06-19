@@ -68,27 +68,57 @@ namespace SistemasWeb01.Controllers
         }
         public IActionResult UpdateProducto(int id)
         {
-            Producto cat = _RepositorioProducto.GetcatById(id);
-            if (cat != null)
+            Producto producto = _RepositorioProducto.GetcatById(id);
+            if (producto != null)
             {
-                return View(cat);
+                UpdateListViewModel updateListViewModel = new UpdateListViewModel
+                {
+                    ProductoId = producto.ProductoId,
+                    NombreProducto = producto.NombreProducto,
+                    DescripcionProducto = producto.DescripcionProducto,
+                    PrecioProducto = producto.PrecioProducto,
+                    ImagenProducto = producto.ImagenProducto,
+                    CategoriaId = producto.CategoriaId
+                    // Asigna otras propiedades necesarias
+                };
+
+                return View(updateListViewModel);
             }
 
             return NotFound();
         }
+
         [HttpPost]
-        public IActionResult UpdateProducto(Producto producto)
+        public IActionResult UpdateProducto(UpdateListViewModel updateListViewModel)
         {
             if (ModelState.IsValid)
             {
+                // Obtener el producto original de la base de datos
+                Producto producto = _RepositorioProducto.GetcatById(updateListViewModel.ProductoId);
+                if (producto == null)
+                {
+                    return NotFound();
+                }
+
+                // Actualizar las propiedades del producto con los valores del ViewModel
+                producto.NombreProducto = updateListViewModel.NombreProducto;
+                producto.DescripcionProducto = updateListViewModel.DescripcionProducto;
+                producto.PrecioProducto = updateListViewModel.PrecioProducto;
+                producto.ImagenProducto = updateListViewModel.ImagenProducto;
+                producto.CategoriaId = updateListViewModel.CategoriaId;
+                // Actualizar otras propiedades según sea necesario
+
+                // Guardar los cambios en la base de datos
                 _RepositorioProducto.UpdateProducto(producto);
+
                 return RedirectToAction("Index", "Producto");
             }
             else
             {
-                return View(producto);
+                return View(updateListViewModel);
             }
         }
+
 
         //public IActionResult detalleCategoria(int id)
         //{

@@ -12,7 +12,7 @@ namespace SistemasWeb01.Models
         {
             _BdContexTiendaTecnoBoliviaSc = bdContexTiendaTecnoBoliviaSc;
         }
-        public Producto GetcatById(int id)
+        public Producto? GetcatById(int id)
         {
             return _BdContexTiendaTecnoBoliviaSc.Productosdbcontex.FirstOrDefault(p => p.ProductoId == id);
         }
@@ -23,10 +23,17 @@ namespace SistemasWeb01.Models
         }
         public void UpdateProducto(Producto producto)
         {
-            
 
-            _BdContexTiendaTecnoBoliviaSc.Productosdbcontex.Update(producto);
-            _BdContexTiendaTecnoBoliviaSc.SaveChanges();
+            try
+            {
+                _BdContexTiendaTecnoBoliviaSc.Productosdbcontex.Update(producto);
+                _BdContexTiendaTecnoBoliviaSc.SaveChanges();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
 
         }
         public void Delete(Producto producto)
@@ -50,5 +57,6 @@ namespace SistemasWeb01.Models
         {
             return _BdContexTiendaTecnoBoliviaSc.Productosdbcontex.ToList();
         }
+       
     }
 }

@@ -1,5 +1,4 @@
-﻿@model SistemasWeb01.Models.Producto
-
+﻿@model SistemasWeb01.ViewModels.UpdateListViewModel
 @{
     ViewData["Title"] = "Edit";
 }
@@ -17,14 +16,54 @@
                 <label asp-for="NombreProducto" class="control-label"></label>
                 <input asp-for="NombreProducto" class="form-control" />
                 <span asp-validation-for="NombreProducto" class="text-danger"></span>
+                    @if (ViewData.ModelState.TryGetValue("NombreProducto", out var nombreProductoErrors))
+                    {
+                        foreach (var error in nombreProductoErrors.Errors)
+                        {
+                            <span class="text-danger">@error.ErrorMessage</span>
+                        }
+                    }
             </div>
             <div class="form-group">
                 <label asp-for="DescripcionProducto" class="control-label"></label>
                 <input asp-for="DescripcionProducto" class="form-control" />
                 <span asp-validation-for="DescripcionProducto" class="text-danger"></span>
+                    @if (ViewData.ModelState.TryGetValue("DescripcionProducto", out var DescripcionProductoErrors))
+                    {
+                        foreach (var error in DescripcionProductoErrors.Errors)
+                        {
+                            <span class="text-danger">@error.ErrorMessage</span>
+                        }
+                    }
             </div>
-           
-            <div class="form-group">
+                <div class="form-group">
+                    <label asp-for="PrecioProducto" class="control-label"></label>
+                    <input asp-for="PrecioProducto" class="form-control" />
+                    <span asp-validation-for="PrecioProducto" class="text-danger"></span>
+                    @if (ViewData.ModelState.TryGetValue("PrecioProducto", out var PrecioProductoErrors))
+                    {
+                        foreach (var error in PrecioProductoErrors.Errors)
+                        {
+                            <span class="text-danger">@error.ErrorMessage</span>
+                        }
+                    }
+                </div>
+                <div class="form-group">
+                    <label asp-for="CategoriaId" class="control-label"></label>
+                    <input asp-for="CategoriaId" class="form-control" />
+                    <span asp-validation-for="CategoriaId" class="text-danger"></span>
+                   
+                </div>
+                <div class="form-group">
+                    <label asp-for="ImagenProducto" class="control-label"></label>
+                    <input asp-for="ImagenProducto" class="form-control" />
+                    <span asp-validation-for="ImagenProducto" class="text-danger"></span>
+
+                </div>
+
+
+
+                <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
             </div>
         </form>

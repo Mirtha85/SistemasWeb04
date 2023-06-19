@@ -7,7 +7,8 @@
         public void Delete(Producto producto);
 
         public void Deletet(Producto producto);
-        Producto? GetcatById(int productoId);
+        Producto? GetcatById(int id);
+        
         //definimos una propiedad filtroDelete de tipo IEnumerable<Producto> se usa para filtrar una lista de productos 
         IEnumerable<Producto> filtroDelete { get; }
         public IEnumerable<Producto> listaproducto();

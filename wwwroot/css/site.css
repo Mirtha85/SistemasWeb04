@@ -171,4 +171,9 @@ a {
 .seccion {
     margin-top: 100px;
 }
+.bi-lg {
+    font-size: 30px; /* Ajusta el tamaño según tus preferencias */
+    margin-right: 10px;
+}
+
 
