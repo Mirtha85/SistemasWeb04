@@ -1,42 +1,117 @@
 ﻿@model ShoppingCartViewModel
 <section class="container seccion">
-<h3 class="my-5">
-    Shopping cart
-</h3>
+    <h3 class="my-5">Shopping cart</h3>
+
+    <div class="row gx-3">
+        <div class="col-8">
+            @foreach (var line in Model.ShoppingCart.ShoppingCartItems)
+            {
+                <div class="card shopping-cart-card mb-2">
+                    <div class="row g-0">
+                        <div class="col-md-4">
+                            <img src="~/imagenes/@line.producto.ImagenProducto" class="img-fluid rounded-start p-2" alt="@line.producto.NombreProducto">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title">@line.producto.NombreProducto</h5>
+                                <p class="card-text">@line.producto.DescripcionProducto</p>
+                                <h6 class="card-subtitle mb-2 text-muted">
+                                    <span class="quantity-label">Cantidad:</span>
+                                    <span class="quantity-value">@line.Amount</span>
+                                </h6>
 
 
-<div class="row gx-3">
-    <div class="col-8">
-        @foreach (var line in Model.ShoppingCart.ShoppingCartItems)
-        {
-            <div class="card shopping-cart-card mb-2">
-                <div class="row">
-                    <div class="col-md-4">
-                        <img src="@line.producto.ImagenProducto" class="img-fluid rounded-start p-2" alt="@line.producto.NombreProducto">
-                    </div>
-                    <div class="col-md-8">
-                        <div class="card-body">
-                            <h5 class="card-text">@line.Amount x @line.producto.NombreProducto</h5>
-                            <div class="d-flex justify-content-between">
-                                <h6>@line.producto.DescripcionProducto</h6>
-                                <h2>@line.producto.PrecioProducto.ToString("c")</h2>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <h2 class="price">@line.producto.PrecioProducto.ToString("c")</h2>
+                                    <form method="post" asp-controller="ShoppingCart" asp-action="RemoveFromShoppingCart" class="form-remove">
+                                        <input type="hidden" name="productoId" value="@line.producto.ProductoId" />
+                                        <button type="submit" class="btn btn-outline-danger btn-remove"><i class="bi bi-trash"></i> Remove</button>
+                                    </form>
+                                </div>
                             </div>
                         </div>
+
+                    </div>
+                    
+                       
+                    
+                </div>
+            }
+        </div>
+        <div class="col-4">
+            <div class="card shopping-cart-card p-3">
+                <div class="row mb-3">
+                    <div class="col">
+                        <h4>Total:</h4>
+                    </div>
+                    <div class="col text-end">
+                        <h4 class="total-amount">@Model.ShoppingCartTotal.ToString("c")</h4>
                     </div>
                 </div>
-            </div>
-        }
-    </div>
-    <div class="col-4">
-        <div class="card shopping-cart-card p-3">
-            <div class="row">
-                <h4 class="col">Total:</h4>
-                <h4 class="col text-end">@Model.ShoppingCartTotal.ToString("c")</h4>
-            </div>
-            <hr />
-            <div class="text-center d-grid">
+                <hr />
+                <div class="text-center d-grid">
+                    <a class="btn btn-secondary" asp-controller="Order" asp-action="Checkout">Check out now!</a>
+                </div>
             </div>
         </div>
     </div>
-</div>
+
+    <style>
+        .quantity-label {
+            font-weight: bold;
+            color: #555;
+        }
+
+        .quantity-value {
+            font-weight: normal;
+            color: #888;
+        }
+
+        .shopping-cart-card {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .card-body {
+            padding: 10px;
+        }
+
+        .card-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .card-text {
+            font-size: 14px;
+            color: #555;
+            margin-bottom: 10px;
+        }
+
+        .price {
+            font-size: 20px;
+            font-weight: bold;
+            color: #FF0000;
+            margin-bottom: 0;
+        }
+
+        .btn-remove {
+            padding: 5px 10px;
+            font-size: 14px;
+        }
+
+            .btn-remove i {
+                margin-right: 5px;
+            }
+
+        .total-amount {
+            font-size: 24px;
+            font-weight: bold;
+            color: #555;
+            margin-bottom: 0;
+        }
+    </style>
+
+
 </section>

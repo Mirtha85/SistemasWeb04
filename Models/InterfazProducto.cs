@@ -13,5 +13,6 @@
         IEnumerable<Producto> filtroDelete { get; }
         public IEnumerable<Producto> listaproducto();
         IEnumerable<Producto> productosList { get; }
+        IEnumerable<Producto> AllProductos { get; }
     }
 }

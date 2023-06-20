@@ -51,6 +51,13 @@ namespace SistemasWeb01.Models
 
         }
         /* LLama a todos los productos */
+        public IEnumerable<Producto> AllProductos
+        {
+            get
+            {
+                return _BdContexTiendaTecnoBoliviaSc.Productosdbcontex.Include(c => c.Categoria);
+            }
+        }
         public IEnumerable<Producto> productosList => _BdContexTiendaTecnoBoliviaSc.Productosdbcontex.ToList();
         public IEnumerable<Producto> filtroDelete => _BdContexTiendaTecnoBoliviaSc.Productosdbcontex.Where(p => p.Deleted == true).ToList();
         public IEnumerable<Producto> listaproducto()

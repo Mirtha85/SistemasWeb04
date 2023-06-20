@@ -28,11 +28,11 @@ namespace SistemasWeb01.Controllers
 
         public RedirectToActionResult AddToShoppingCart(int productoId)
         {
-            var selectedPie = _Repositorioproducto.productosList.FirstOrDefault(p => p.ProductoId == productoId);
+            var selectedProducto = _Repositorioproducto.AllProductos.FirstOrDefault(p => p.ProductoId == productoId);
 
-            if (selectedPie != null)
+            if (selectedProducto != null)
             {
-                _shoppingCart.AddToCart(selectedPie);
+                _shoppingCart.AddToCart(selectedProducto);
             }
             return RedirectToAction("Index");
         }
