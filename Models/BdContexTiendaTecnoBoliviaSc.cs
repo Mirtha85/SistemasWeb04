@@ -1,10 +1,11 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using System.Diagnostics.Contracts;
 using System.IO.Pipelines;
 
 namespace SistemasWeb01.Models
 {
-    public class BdContexTiendaTecnoBoliviaSc : DbContext
+    public class BdContexTiendaTecnoBoliviaSc : IdentityDbContext
     {
         //creamos una funcion de tipo dbcontex para manipular la base de datos 
         public BdContexTiendaTecnoBoliviaSc(DbContextOptions<BdContexTiendaTecnoBoliviaSc> options) : base(options)

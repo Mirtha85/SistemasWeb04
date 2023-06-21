@@ -1,0 +1,108 @@
+﻿@page
+@model LoginModel
+
+@{
+    ViewData["Title"] = "Acceso";
+}
+<body>
+    <section class="container seccionlogin">
+        <h3 class="mt-5">@ViewData["Title"]</h3>
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <form id="account" method="post">
+                    <h3>Usa una cuenta local para iniciar sesión.</h3>
+                    <hr />
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-floating mb-2">
+                        <input asp-for="Input.Email" class="form-control" autocomplete="username" aria-required="true" />
+                        <label asp-for="Input.Email" class="form-label"></label>
+                        <span asp-validation-for="Input.Email" class="text-danger"></span>
+                    </div>
+                    <div class="form-floating mb-2">
+                        <input asp-for="Input.Password" class="form-control" autocomplete="current-password" aria-required="true" />
+                        <label asp-for="Input.Password" class="form-label"></label>
+                        <span asp-validation-for="Input.Password" class="text-danger"></span>
+                    </div>
+                    <div>
+                        <div class="checkbox">
+                            <label asp-for="Input.RememberMe" class="form-label">
+                                <input class="form-check-input" asp-for="Input.RememberMe" />
+                                @Html.DisplayNameFor(m => m.Input.RememberMe)
+                            </label>
+                        </div>
+                    </div>
+                    <div>
+                        <button id="login-submit" type="submit" class="w-100 btn btn-lg btn-secondary">Iniciar sesión</button>
+                    </div>
+                    <div>
+                        <p>
+                            <a id="forgot-password" asp-page="./ForgotPassword">¿Olvidaste tu contraseña?</a>
+                        </p>
+                        <p>
+                            <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Registrarse como nuevo usuario</a>
+                        </p>
+                        <p>
+                            <a id="resend-confirmation" asp-page="./ResendEmailConfirmation">Reenviar correo electrónico de confirmación</a>
+                        </p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+</body>
+<style>
+    body {
+        background-color: #f5f5f5;
+    }
+
+    .seccionlogin {
+        max-width: 500px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #ffffff;
+        border-radius: 10px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    h3 {
+        text-align: center;
+        margin-top: 10px;
+        margin-bottom: 20px;
+        color: #333;
+    }
+
+    .form-floating {
+        margin-bottom: 20px;
+    }
+
+    .btn-secondary {
+        background-color: rebeccapurple;
+        border-color: rebeccapurple;
+    }
+
+        .btn-secondary:hover {
+            background-color: gold;
+            border-color: gold;
+        }
+
+    .external-login-button {
+        display: block;
+        width: 100%;
+        margin-bottom: 10px;
+        padding: 10px;
+        text-align: center;
+        background-color: rebeccapurple;
+        border-color: rebeccapurple;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 5px;
+    }
+
+        .external-login-button:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
+        }
+</style>
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

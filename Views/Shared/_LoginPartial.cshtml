@@ -1,0 +1,35 @@
+﻿@using Microsoft.AspNetCore.Identity
+
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+<ul class="navbar-nav">
+    @if (SignInManager.IsSignedIn(User))
+    {
+        <li class="nav-item">
+            <a id="manage" class="nav-link" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage" style="font-size: 17px; color: white;">
+                <i class="fas fa-user-circle"></i> Hola @UserManager.GetUserName(User)!
+            </a>
+        </li>
+        <li class="nav-item">
+            <form id="logoutForm" class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/Index", new { area = "" })">
+                <button id="logout" type="submit" class="nav-link btn btn-link" style="font-size: 17px; color: white;font-weight: bold;">
+                    <i class="fas fa-sign-out-alt"></i> Cerrar sesión
+                </button>
+            </form>
+        </li>
+    }
+    else
+    {
+        <li class="nav-item">
+            <a class="nav-link" id="register" asp-area="Identity" asp-page="/Account/Register" style="font-size: 17px; color: white;font-weight: bold;">
+                <i class="bi bi-person-circle"></i> Registrase
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="login" asp-area="Identity" asp-page="/Account/Login" style="font-size: 17px; color: white;font-weight: bold;">
+                <i class="bi bi-box-arrow-in-right"></i> Iniciar Sesiòn
+            </a>
+        </li>
+    }
+</ul>
+

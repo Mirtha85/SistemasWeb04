@@ -1,5 +1,8 @@
 using Microsoft.EntityFrameworkCore;
 using SistemasWeb01.Models;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Identity;
+
 using SistemasWeb01;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -25,12 +28,18 @@ builder.Services.AddDbContext<BdContexTiendaTecnoBoliviaSc>(options =>
     options.UseSqlite(connectionString);
 });
 
+builder.Services.AddDefaultIdentity<IdentityUser>(
+    //options => options.SignIn.RequireConfirmedAccount = true
+    ).AddEntityFrameworkStores<BdContexTiendaTecnoBoliviaSc>();
+
 var app = builder.Build();
 
 // Configurar el pipeline de solicitudes HTTP
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
+    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+    app.UseDeveloperExceptionPage();
     app.UseHsts();
 }
 
@@ -38,10 +47,12 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseSession();
 
-app.UseRouting();
+//app.UseRouting();
 
 app.UseAuthentication();
 app.UseAuthorization();
+
+
 
 app.MapControllerRoute(
     name: "default",
