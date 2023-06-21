@@ -5,13 +5,13 @@
 </section>
 
 <div class="text-center my-4">
-    <div id="categorias">
-        <button class="btn btn-warning btn-categoria btn-todos" data-id="todos">
+    <div id="categorias" style="display: flex; flex-wrap: wrap; justify-content: center;">
+        <button class="btn btn-warning btn-categoria btn-todos" data-id="todos" style="margin-bottom: 10px;">
             Mostrar Todos
         </button>
         @foreach (var categoria in Model.categorias)
         {
-            <button class="btn btn-warning btn-categoria mr-2" data-id="@categoria.CategoriaId">
+            <button class="btn btn-warning btn-categoria mr-2" data-id="@categoria.CategoriaId" style="margin-bottom: 10px;">
                 @categoria.NombreCategoria
             </button>
         }
