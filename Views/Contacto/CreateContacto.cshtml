@@ -1,0 +1,112 @@
+﻿@model Contacto
+<style>
+    .seccion {
+        margin-top: 60px;
+    }
+</style>
+<section class="container seccion">
+    <div class="containercontact">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <div class="cardcontact">
+                    <div class="card-headercontact">
+                        <h3 class="text-center">Contactanos</h3>
+                    </div>
+                    <div class="card-bodycontact">
+                        <form asp-action="CreateContacto" method="post">
+                            <div class="form-group">
+                                <label asp-for="NombreContacto" class="form-label">Nombre</label>
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="fa fa-user"></i></span>
+                                    <input asp-for="NombreContacto" class="form-control" />
+                                </div>
+                                <span asp-validation-for="NombreContacto" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="CorreoElectronico" class="form-label">Email</label>
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="fa fa-envelope"></i></span>
+                                    <input asp-for="CorreoElectronico" class="form-control" />
+                                </div>
+                                <span asp-validation-for="CorreoElectronico" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Telefono" class="form-label">Telefono</label>
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="fa fa-phone"></i></span>
+                                    <input asp-for="Telefono" class="form-control" />
+                                </div>
+                                <span asp-validation-for="Telefono" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Mensaje" class="form-label">Mensaje</label>
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="fa fa-pencil"></i></span>
+                                    <textarea asp-for="Mensaje" class="form-control" rows="5"></textarea>
+                                </div>
+                                <span asp-validation-for="Mensaje" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-rebeccapurple btn-block">Enviar</button>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<style>
+    .containercontact {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    .btn-rebeccapurple {
+        background-color: rebeccapurple;
+        color: white;
+    }
+
+    .cardcontact {
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        padding: 20px;
+    }
+
+    .card-headercontact {
+        background-color: #f8f9fa;
+        padding: 10px;
+        border-bottom: 1px solid #ccc;
+        text-align: center;
+    }
+
+    .card-headercontact h3 {
+        margin: 0;
+        font-size: 24px;
+        font-weight: bold;
+        color: #333;
+    }
+
+    .card-bodycontact {
+        padding: 10px;
+    }
+
+    .form-label {
+        font-weight: bold;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    .input-group-text {
+        background-color: #f8f9fa;
+        border-right: none;
+    }
+
+    .btn-block {
+        width: 100%;
+    }
+</style>
+

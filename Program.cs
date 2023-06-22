@@ -13,7 +13,9 @@ builder.Services.AddControllersWithViews();
 
 builder.Services.AddScoped<InterfazCategoria, RepositorioCategoria>();
 builder.Services.AddScoped<InterfazProducto, RepositorioProducto>();
+
 builder.Services.AddScoped<InterfazOrder, RepositorioOrder>();
+builder.Services.AddScoped<InterfazContacto, RepositorioContacto>();
 
 builder.Services.AddScoped<InterfazShoppingCart, RepositorioShoppingCart>(sp => RepositorioShoppingCart.GetCart(sp));
 builder.Services.AddSession();

@@ -12,22 +12,23 @@
         </li>
         <li class="nav-item">
             <form id="logoutForm" class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/Index", new { area = "" })">
-                <button id="logout" type="submit" class="nav-link btn btn-link" style="font-size: 17px; color: white;font-weight: bold;">
-                    <i class="fas fa-sign-out-alt"></i> Cerrar sesión
+                <button id="logout" type="submit" class="nav-link btn btn-link" style="font-size: 17px; font-weight: bold;color: gold;">
+                    <i class="fas fa-sign-out-alt"></i> <span style="color: white;">Cerrar sesión</span>
                 </button>
             </form>
         </li>
+
     }
     else
     {
         <li class="nav-item">
-            <a class="nav-link" id="register" asp-area="Identity" asp-page="/Account/Register" style="font-size: 17px; color: white;font-weight: bold;">
-                <i class="bi bi-person-circle"></i> Registrase
+            <a class="nav-link" id="register" asp-area="Identity" asp-page="/Account/Register" style="font-size: 17px; color: gold;font-weight: bold;">
+                <i class="bi bi-person-circle"></i> <span style="color: white;">Registrarse</span>
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" id="login" asp-area="Identity" asp-page="/Account/Login" style="font-size: 17px; color: white;font-weight: bold;">
-                <i class="bi bi-box-arrow-in-right"></i> Iniciar Sesiòn
+            <a class="nav-link" id="login" asp-area="Identity" asp-page="/Account/Login" style="font-size: 17px; color: gold;font-weight: bold;">
+                <i class="bi bi-box-arrow-in-right"></i> <span style="color: white;">Iniciar Sesión</span>
             </a>
         </li>
     }
