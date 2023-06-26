@@ -1,0 +1,10 @@
+﻿/* Estilos responsivos para dispositivos móviles */
+@media (max-width: 767px) {
+    .col-12 {
+        width: 100%;
+    }
+
+    .text-md-right {
+        text-align: center;
+    }
+}

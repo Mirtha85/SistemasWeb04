@@ -1,11 +1,13 @@
-﻿namespace SistemasWeb01.Models
+﻿using System.IO.Pipelines;
+
+namespace SistemasWeb01.Models
 {
     public interface InterfazProducto
     {
         public void agregar(Producto producto);
         public void UpdateProducto(Producto producto);
         public void Delete(Producto producto);
-
+        IEnumerable<Producto> SearchProducto(string searchQuery);
         public void Deletet(Producto producto);
         Producto? GetcatById(int id);
         

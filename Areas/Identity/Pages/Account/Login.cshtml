@@ -33,7 +33,19 @@
                     </div>
                     <div>
                         <button id="login-submit" type="submit" class="w-100 btn btn-lg btn-secondary">Iniciar sesión</button>
+                       
+                       
                     </div>
+                    <br >
+                    <div> 
+                        <button id="registerSubmit" type="submit" class="w-100  btn btn-sm btn-secondary">
+                            <a class="nav-link text-white large-font" id="register" asp-area="Identity" asp-page="/Account/Register">Registrarse  </a>
+                         </button>
+                    </div>
+                    <br >
+                   
+
+                    
                     <div>
                         <p>
                             <a id="forgot-password" asp-page="./ForgotPassword">¿Olvidaste tu contraseña?</a>
@@ -57,11 +69,16 @@
 
     .seccionlogin {
         max-width: 500px;
-        margin: 0 auto;
+        margin-bottom: 40px;
+        margin-top: 50px;
         padding: 20px;
         background-color: #ffffff;
         border-radius: 10px;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .large-font {
+        font-size: 18px; /* Ajusta el tamaño de fuente según tus preferencias */
     }
 
     h3 {

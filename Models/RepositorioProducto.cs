@@ -50,6 +50,10 @@ namespace SistemasWeb01.Models
             _BdContexTiendaTecnoBoliviaSc.SaveChanges();
 
         }
+        public IEnumerable<Producto> SearchProducto(string searchQuery)
+        {
+            return _BdContexTiendaTecnoBoliviaSc.Productosdbcontex.Where(p => p.NombreProducto.Contains(searchQuery));
+        }
         /* LLama a todos los productos */
         public IEnumerable<Producto> AllProductos
         {
@@ -64,6 +68,7 @@ namespace SistemasWeb01.Models
         {
             return _BdContexTiendaTecnoBoliviaSc.Productosdbcontex.ToList();
         }
-       
+      
+
     }
 }

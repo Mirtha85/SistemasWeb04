@@ -3,7 +3,7 @@
 @{
     ViewData["Title"] = "Index";
 }
-<section class="container seccion">
+<section class="container seccion" style="margin-top: 80px; margin-bottom: 55px">
     <h1 class="texto-about fw-bolder text-capitalize">Productos</h1>
 
     <br>
@@ -68,10 +68,10 @@
                     <td>
                     </td>
                     <td>
-                        <a class="btn btn-warning" asp-action="UpdateProducto" asp-route-id="@item.ProductoId">Edit</a>
+                        <a class="btn btn-warning" asp-action="UpdateProducto" asp-route-id="@item.ProductoId">Editar</a>
                     </td>
                     <td>
-                        <a class="btn btn-info" asp-action="Details" asp-route-id="@item.ProductoId">Details</a>
+                        <a class="btn btn-info" asp-action="Details" asp-route-id="@item.ProductoId">Detalle</a>
                     </td>
                     <td>
                         <a class="btn btn-danger" asp-action="DeleteProducto" asp-route-id="@item.ProductoId">Delete</a>
@@ -147,7 +147,7 @@
     }
 
         .table thead th {
-            background-color: #f2f2f2;
+           
             color: #333;
             padding: 8px;
             font-weight: bold;

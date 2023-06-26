@@ -2,11 +2,19 @@ using Microsoft.EntityFrameworkCore;
 using SistemasWeb01.Models;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Identity;
+using System.Text.Json.Serialization;
 
 using SistemasWeb01;
 
 var builder = WebApplication.CreateBuilder(args);
 var connectionString = builder.Configuration.GetConnectionString("BdContexTiendaTecnoBoliviaScConnection") ?? throw new InvalidOperationException("Connection string 'BdContexTiendaTecnoBoliviaScConnection' not found.");
+
+// Add services to the container.
+//Add ignoring infinitive cycles for models objects serialize
+builder.Services.AddControllersWithViews().AddJsonOptions(options => {
+    options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
+});
+
 
 // Agregar servicios al contenedor
 builder.Services.AddControllersWithViews();

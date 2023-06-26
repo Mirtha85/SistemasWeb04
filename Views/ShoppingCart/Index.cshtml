@@ -1,17 +1,18 @@
 ﻿@model ShoppingCartViewModel
-<section class="container seccion">
-    <h3 class="my-5">Shopping cart</h3>
+
+<section class="container seccionsho">
+    <h3 class="my-5">Carrito de Compra</h3>
 
     <div class="row gx-3">
-        <div class="col-8">
+        <div class="col-md-8 col-12">
             @foreach (var line in Model.ShoppingCart.ShoppingCartItems)
             {
                 <div class="card shopping-cart-card mb-2">
                     <div class="row g-0">
-                        <div class="col-md-4">
+                        <div class="col-md-4 col-12">
                             <img src="~/imagenes/@line.producto.ImagenProducto" class="img-fluid rounded-start p-2" alt="@line.producto.NombreProducto">
                         </div>
-                        <div class="col-md-8">
+                        <div class="col-md-8 col-12">
                             <div class="card-body">
                                 <h5 class="card-title">@line.producto.NombreProducto</h5>
                                 <p class="card-text">@line.producto.DescripcionProducto</p>
@@ -30,15 +31,11 @@
                                 </div>
                             </div>
                         </div>
-
                     </div>
-                    
-                       
-                    
                 </div>
             }
         </div>
-        <div class="col-4">
+        <div class="col-md-4 col-12">
             <div class="card shopping-cart-card p-3">
                 <div class="row mb-3">
                     <div class="col">
@@ -50,7 +47,7 @@
                 </div>
                 <hr />
                 <div class="text-center d-grid">
-                    <a class="btn btn-secondary" asp-controller="Order" asp-action="Checkout">Check out now!</a>
+                    <a class="btn btn-secondary" asp-controller="Order" asp-action="Checkout">Realizar Compra</a>
                 </div>
             </div>
         </div>
@@ -71,6 +68,7 @@
             border: 1px solid #ccc;
             border-radius: 5px;
             overflow: hidden;
+            margin-bottom:30px;
         }
 
         .card-body {
@@ -111,7 +109,13 @@
             color: #555;
             margin-bottom: 0;
         }
+
+        .seccionsho {
+            margin-bottom: 55px;
+        }
     </style>
+</section>
+
 
 
 </section>

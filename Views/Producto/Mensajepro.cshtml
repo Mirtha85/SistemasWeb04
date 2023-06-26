@@ -20,17 +20,19 @@
 
 
 
-
-<div class="container d-flex justify-content-center mt-50 mb-50">
-    <div class="row">
-        @foreach (var Producto in Model.Productos)
-        {
-            <div class="col-lg-3 col-md-4 col-sm-6 mt-3 col-xs-12 widget" data-categoria="@Producto.CategoriaId">
-                <partial name="_ProductoCard" model="Producto" />
-            </div>
-        }
+<section >
+    <div class="container d-flex justify-content-center mt-50 mb-50" style="margin-bottom: 100px;">
+        <div class="row">
+            @foreach (var Producto in Model.Productos)
+            {
+                <div class="col-lg-3 col-md-4 col-sm-6 mt-3 col-xs-12 widget" data-categoria="@Producto.CategoriaId">
+                    <partial name="_ProductoCard" model="Producto" />
+                </div>
+            }
+        </div>
     </div>
-</div>
+</section>
+
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
