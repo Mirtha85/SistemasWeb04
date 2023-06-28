@@ -36,7 +36,7 @@ namespace SistemasWeb01.Controllers
             {
                 _orderRepository.CreateOrder(order);
                 _shoppingCart.ClearCart();
-                return RedirectToAction("CheckoutComplete");
+                return RedirectToAction("Mensajepro", "Producto");
             }
             return View(order);
         }
