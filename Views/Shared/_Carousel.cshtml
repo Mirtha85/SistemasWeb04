@@ -1,4 +1,9 @@
-﻿<!--Indicadores-->
+﻿@using Microsoft.AspNetCore.Identity
+
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+<!--Indicadores-->
 <div class="carousel-indicators">
     <button type="button" data-bs-target="#hero-carousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
     <button type="button" data-bs-target="#hero-carousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
@@ -37,5 +42,26 @@
 </button>
 
 <div class="titulo-carrusel">
-    <h1 class="texto-about fw-bolder text-capitalize">Bienvenido</h1>
+    <div class="centrar-contenido">
+        <h1 class="texto-about fw-bolder text-capitalize">Bienvenido</h1>
+        <a id="manage" class="nav-link" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage" style="font-size: 17px; color: white; ">
+            @UserManager.GetUserName(User)
+        </a>
+    </div>
 </div>
+
+<style>
+    .titulo-carrusel {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+
+    .centrar-contenido {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+</style>
+

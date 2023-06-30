@@ -35,6 +35,9 @@ namespace SistemasWeb01.Controllers
             if (ModelState.IsValid)
             {
                 _orderRepository.CreateOrder(order);
+                string texto = _orderRepository.detalleOrden(order);
+                string number = order.PhoneNumber;
+                _orderRepository.correoSend(texto, order.Email);
                 _shoppingCart.ClearCart();
                 return RedirectToAction("Mensajepro", "Producto");
             }
