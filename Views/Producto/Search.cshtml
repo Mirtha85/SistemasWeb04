@@ -1,6 +1,8 @@
 ﻿<style>
-   
-
+    .seccionsearch {
+        margin-top: 70px;
+        margin-bottom: 50px;
+    }
     .search-container {
         text-align: center;
         margin-bottom: 20px;
@@ -22,9 +24,10 @@
         }
 
     .product-card {
-        background-color:white;
-        width: 230px;
-        height:300px;
+        background-color: white;
+        width: 100%;
+        max-width: 230px;
+        height: auto;
         margin-bottom: 20px;
         margin-right: 20px;
         padding: 10px;
@@ -34,12 +37,11 @@
         text-align: center;
         display: inline-block;
         vertical-align: top;
-        
     }
 
         .product-card img {
             width: 70%;
-            height: 50%;
+            height: auto;
             margin-bottom: 10px;
         }
 
@@ -58,14 +60,14 @@
         }
 </style>
 
-<section class="container seccion">
+<section class="container seccionsearch">
     <div class="search-container">
         <h3>Ingresa el producto que deseas buscar</h3>
         <input id="txtProductoNombre" type="text" placeholder="Escribe aquí...">
         <button id="searchButton">Buscar</button>
     </div>
 
-    <div id="tblProductos"></div>
+    <div id="tblProductos" class="row justify-content-center"></div>
 </section>
 
 <script type="text/javascript">
@@ -81,13 +83,11 @@
                 dataType: "json",
                 success: function (productos) {
                     $.each(productos, function (i, producto) {
-                        var productCard = $('<div class="product-card">');
+                        var productCard = $('<div class="product-card col-sm-6 col-md-4 col-lg-3">');
 
                         productCard.append('<img src="/imagenes/' + producto.imagenProducto + '">');
-                        
                         productCard.append('<h4><a href="/Producto/details/' + producto.productoId + '">' + producto.nombreProducto + '</a></h4>');
-                        //productCard.append('<p>' + producto.descripcionProducto + '</p>');
-                       // productCard.append('<p>Precio: ' + producto.precioProducto + '</p>');
+
                         $("#tblProductos").append(productCard);
                     });
                 },
